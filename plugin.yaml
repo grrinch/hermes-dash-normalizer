@@ -1,0 +1,24 @@
+name: dash-normalizer
+version: "0.1.0"
+description: "Normalize dash characters in final assistant output via transform_llm_output. Replaces em dash with hyphen by default; en dash is optional."
+author: Rad Paluszak + Hermes Agent
+kind: standalone
+provides_hooks:
+  - transform_llm_output
+config_schema:
+  enabled:
+    type: bool
+    default: true
+    description: "Enable final assistant output dash normalization."
+  replace_em_dash:
+    type: bool
+    default: true
+    description: "Replace em dash (—) with hyphen (-)."
+  replace_en_dash:
+    type: bool
+    default: false
+    description: "Replace en dash (–) with hyphen (-)."
+  scope:
+    type: str
+    default: assistant_text_only
+    description: "Documentation guard: transform_llm_output only receives final assistant text."
