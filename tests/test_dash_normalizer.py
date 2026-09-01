@@ -79,6 +79,6 @@ def test_tool_payload_like_text_is_not_transformed_unless_passed_as_final_respon
     assert "on_stream_delta" not in ctx.hooks
 
 
-def test_polish_and_markdown_survive_except_configured_dash():
-    text = "**Uwaga** — żółć i link [opis](https://example.com/a-b)."
-    assert plugin.normalize_response_text(text) == "**Uwaga** - żółć i link [opis](https://example.com/a-b)."
+def test_markdown_survives_except_configured_dash():
+    text = "**Note** — cafe and link [details](https://example.com/a-b)."
+    assert plugin.normalize_response_text(text) == "**Note** - cafe and link [details](https://example.com/a-b)."

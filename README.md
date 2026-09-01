@@ -109,15 +109,15 @@ plugins:
 Default behavior:
 
 ```text
-Input:  Oferta — wariant A; lata 1999–2001.
-Output: Oferta - wariant A; lata 1999–2001.
+Input:  Plan — option A; years 1999–2001.
+Output: Plan - option A; years 1999–2001.
 ```
 
 With `replace_en_dash: true`:
 
 ```text
-Input:  Oferta — wariant A; lata 1999–2001.
-Output: Oferta - wariant A; lata 1999-2001.
+Input:  Plan — option A; years 1999–2001.
+Output: Plan - option A; years 1999-2001.
 ```
 
 The plugin returns `None` when no change is needed. This lets Hermes treat the response as unchanged.
@@ -159,7 +159,7 @@ print('plugin_loaded=', 'dash-normalizer' in pm._plugins)
 print('hook_count=', len(pm._hooks.get('transform_llm_output', [])))
 print('transform=', pm.invoke_hook(
     'transform_llm_output',
-    response_text='Oferta — wariant A; lata 1999–2001.',
+    response_text='Plan — option A; years 1999–2001.',
 ))
 PY
 ```
@@ -169,7 +169,7 @@ Expected output includes:
 ```text
 plugin_loaded= True
 hook_count= 1
-transform= ['Oferta - wariant A; lata 1999–2001.']
+transform= ['Plan - option A; years 1999–2001.']
 ```
 
 ## Live check
@@ -177,7 +177,7 @@ transform= ['Oferta - wariant A; lata 1999–2001.']
 Ask the target Hermes profile:
 
 ```text
-Odpowiedz dokładnie tym tekstem i niczym więcej: TEST — TEST
+Reply with exactly this text and nothing else: TEST — TEST
 ```
 
 Expected final delivered response:
