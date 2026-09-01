@@ -2,6 +2,8 @@
 
 Standalone Hermes Agent plugin that normalizes dash characters in final assistant output.
 
+Built by [Rad Paluszak](https://paluszak.me/) and [NON.agency](https://non.agency/) for Hermes Agent profiles that need simpler final-output typography without Hermes core changes.
+
 ## Bottom Line Up Front
 
 `dash-normalizer` registers the Hermes Agent `transform_llm_output` hook.
@@ -154,7 +156,7 @@ pm = PluginManager()
 pm.discover_and_load()
 
 print('plugin_loaded=', 'dash-normalizer' in pm._plugins)
-print('hook_count=', len(pm.hooks.get('transform_llm_output', [])))
+print('hook_count=', len(pm._hooks.get('transform_llm_output', [])))
 print('transform=', pm.invoke_hook(
     'transform_llm_output',
     response_text='Oferta — wariant A; lata 1999–2001.',
@@ -207,3 +209,15 @@ git status --short --untracked-files=all
 This software is provided as-is. The authors do not guarantee that it will fit your use case or that it will be free of defects.
 
 Fixes and support are handled only in the authors' own time and at their own discretion.
+
+## Author
+
+- Rad Paluszak: [paluszak.me](https://paluszak.me/)
+- LinkedIn: [Rad Paluszak](https://uk.linkedin.com/in/radpaluszak/pl)
+- NON.agency: [non.agency](https://non.agency/)
+
+## License
+
+BSD 3-Clause License.
+
+See [`LICENSE`](LICENSE) for the full license text.
